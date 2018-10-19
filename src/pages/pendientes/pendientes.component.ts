@@ -22,9 +22,10 @@ export class PendientesComponent  {
   }
 
 
-  verItemsLista(nombre:string){
+  verItemsLista(index:number){
+
     console.log('verItemsLista');
-    this._navCtr.push( verItemsComponent );
+    this._navCtr.push( verItemsComponent, index );
 
   }
 

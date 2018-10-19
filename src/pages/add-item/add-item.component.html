@@ -7,15 +7,38 @@
 <ion-content padding>
   <ion-card>
     <ion-card-header>
-      {{new_item | placeholder: 'Nuevo Item'}}
+      {{ lista_name | placeholder: 'New List'}}
     </ion-card-header>
     <ion-card-content>
       <ion-item>
-         <ion-label color="primary" floating>New Item</ion-label>
-         <ion-input [(ngModel)]="new_item"  (keyup.enter)="mostrar()"></ion-input>
-       </ion-item>
+        <ion-label color="primary" floating>New List</ion-label>
+        <ion-input [(ngModel)]="lista_name"></ion-input>
+      </ion-item>
+      <ion-item>
+        <ion-label color="primary" floating>New Item</ion-label>
+        <ion-input [(ngModel)]="new_item"  (keyup.enter)="mostrar()"></ion-input>
+      </ion-item>
 
     </ion-card-content>
   </ion-card>
-  <button ion-button block (click)="addNewItem()">Add</button>
-</ion-content>
+
+  <ion-card *ngIf="new_lista.length > 0">
+    <ion-card-header>
+      Nuevo Listado
+    </ion-card-header>
+    <ion-card-content>
+      <ion-item *ngFor="let element of new_lista; let i = index">
+
+        <ion-label>{{ element.nombre }}</ion-label>
+        <!-- <button ion-button round (click)="eliminar()" class="button">Delete</button> -->
+        <button ion-button outline item-right color="danger" (click)="eliminar(i)">
+          <ion-icon name="trash"></ion-icon>  </button>
+        </ion-item>
+      </ion-card-content>
+    </ion-card>
+
+
+    <button ion-button block (click)="saveList()">Save List</button>
+
+
+  </ion-content>

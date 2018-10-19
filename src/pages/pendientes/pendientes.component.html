@@ -10,8 +10,8 @@
       Pendientes
     </ion-card-header>
     <ion-card-content>
-      <ion-list *ngFor="let item of listas" >
-        <button ion-item (click)='verItemsLista(item.nombre)'>
+      <ion-list *ngFor="let item of listas; let i =index" >
+        <button ion-item (click)='verItemsLista(i)'>
           <ion-icon name="cart" item-start></ion-icon>
           {{item.nombre}} - <p *ngIf="terminada">Terminada</p> <p *ngIf="!terminada">No Terminada</p>
         </button>
