@@ -1,0 +1,21 @@
+<ion-header>
+  <ion-navbar>
+    <ion-title>Nueva Lista</ion-title>
+  </ion-navbar>
+</ion-header>
+
+<ion-content padding>
+  <ion-card>
+    <ion-card-header>
+      {{new_item | placeholder: 'Nuevo Item'}}
+    </ion-card-header>
+    <ion-card-content>
+      <ion-item>
+         <ion-label color="primary" floating>New Item</ion-label>
+         <ion-input [(ngModel)]="new_item"  (keyup.enter)="mostrar()"></ion-input>
+       </ion-item>
+
+    </ion-card-content>
+  </ion-card>
+  <button ion-button block (click)="addNewItem()">Add</button>
+</ion-content>

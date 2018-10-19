@@ -1,0 +1,22 @@
+<ion-header>
+  <ion-navbar>
+    <ion-title>Lista de Pendietes</ion-title>
+  </ion-navbar>
+</ion-header>
+
+<ion-content padding>
+  <ion-card>
+    <ion-card-header>
+      Pendientes
+    </ion-card-header>
+    <ion-card-content>
+      <ion-list *ngFor="let item of listas" >
+        <button ion-item (click)='verItemsLista(item.nombre)'>
+          <ion-icon name="cart" item-start></ion-icon>
+          {{item.nombre}} - <p *ngIf="terminada">Terminada</p> <p *ngIf="!terminada">No Terminada</p>
+        </button>
+      </ion-list>
+    </ion-card-content>
+  </ion-card>
+  <button ion-button round (click)="addItem()" class="button-block">Add List</button>
+</ion-content>
