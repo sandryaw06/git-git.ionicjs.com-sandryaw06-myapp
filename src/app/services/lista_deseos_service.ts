@@ -8,8 +8,22 @@ export class listaDeseosService {
 
   listas:any[] = [];
   constructor() {
+
+    this.cargarData()
   }
 
+
+  actualizarData(){
+    localStorage.setItem("data", JSON.stringify(this.listas));
+  }
+
+  cargarData(){
+
+    if (JSON.parse(localStorage.getItem("data"))){
+      this.listas = JSON.parse(localStorage.getItem("data"));
+
+    }
+  }
 
   getListas() {
       return this.listas;
@@ -17,5 +31,6 @@ export class listaDeseosService {
 
   guardarLista(lista:Lista){
     this.listas.push(lista);
+    this.actualizarData();
   }
 }
