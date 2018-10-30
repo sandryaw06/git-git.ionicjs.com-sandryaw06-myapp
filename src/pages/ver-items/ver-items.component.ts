@@ -5,8 +5,10 @@ import { Component, OnInit } from '@angular/core';
   templateUrl: 'ver-items.component.html',
 })
 export class verItemsComponent implements OnInit {
-  
-  constructor() {  }
+
+  constructor() {
+
+  }
 
   ngOnInit() {}
 }
